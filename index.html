@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Estudiante - ITH</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .error {
+            color: red;
+            font-size: 0.9em;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Registro de Estudiante</h1>
+        <form action="#" method="post">
+            <label for="numControl">Número de Control:</label>
+            <input type="text" id="numControl" name="numControl" required>
+
+            <label for="apellidoPaterno">Apellido Paterno:</label>
+            <input type="text" id="apellidoPaterno" name="apellidoPaterno" required>
+
+            <label for="apellidoMaterno">Apellido Materno:</label>
+            <input type="text" id="apellidoMaterno" name="apellidoMaterno" required>
+
+            <label for="nombre">Nombre(s):</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="sexo">Sexo:</label>
+            <select id="sexo" name="sexo" required>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Otro">Otro</option>
+            </select>
+
+            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
+
+            <label for="celular">Celular:</label>
+            <input type="tel" id="celular" name="celular" pattern="[0-9]{10}" required>
+
+            <label for="direccion">Dirección:</label>
+            <textarea id="direccion" name="direccion" rows="3" required></textarea>
+
+            <label for="periodoEscolar">Periodo Escolar de Ingreso:</label>
+            <input type="text" id="periodoEscolar" name="periodoEscolar" placeholder="Ej. Agosto 2024" required>
+
+            <label for="carrera">Carrera:</label>
+            <select id="carrera" name="carrera" required>
+                <option value="Ing. en Sistemas Computacionales">Ing. en Sistemas Computacionales</option>
+                <option value="Ing. en Agronomia">Ing. en Agronomia</option>
+                <option value="Lic. en Biologia">Lic. en Biologia</option>
+                <option value="Ing. en Gestion Empresarial">Ing. en Gestion Empresarial</option>
+                <!-- Agrega más carreras si es necesario -->
+            </select>
+
+            <button type="submit">Registrar</button>
+            <script>
+                const form = document.getElementById('formRegistro');
+                const numControl = document.getElementById('numControl');
+                const numControlError = document.getElementById('numControlError');
+                const celular = document.getElementById('celular');
+                const celularError = document.getElementById('celularError');
+        
+                form.addEventListener('submit', function (event) {
+                    event.preventDefault(); // Evitar envío automático
+        
+                    // Validación de matrícula
+                    const matriculaRegex = /^(1084|1184|1284|1384|1484|1584|1684|1784|1884|1984|2084|2184|2284|2384|2484)\d{4}$/;
+                    if (!matriculaRegex.test(numControl.value)) {
+                        numControlError.style.display = 'block';
+                    } else {
+                        numControlError.style.display = 'none';
+                    }
+        
+                    // Validación de celular
+                    if (!/^\d{10}$/.test(celular.value)) {
+                        celularError.style.display = 'block';
+                    } else {
+                        celularError.style.display = 'none';
+                    }
+        
+                    // Mostrar mensaje de éxito si todo es válido
+                    if (form.checkValidity() && numControlError.style.display === 'none' && celularError.style.display === 'none') {
+                        alert('¡Registrado exitosamente!');
+                        form.reset();
+                    }
+                });
+        
+                // Detectar cambios en los campos y validar en tiempo real
+                numControl.addEventListener('input', () => {
+                    if (/^(1084|1184|1284|1384|1484|1584|1684|1784|1884|1984|2084|2184|2284|2384|2484)\d{4}$/.test(numControl.value)) {
+                        numControlError.style.display = 'none';
+                    }
+                });
+        
+                celular.addEventListener('input', () => {
+                    if (/^\d{10}$/.test(celular.value)) {
+                        celularError.style.display = 'none';
+                    }
+                });
+            </script>
+        </form>
+    </div>
+</body>
+</html>

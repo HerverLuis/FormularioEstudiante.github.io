@@ -1,0 +1,61 @@
+body {
+    font-family: 'Poppins', sans-serif; /* Fuente moderna */
+    background: url('https://source.unsplash.com/1600x900/?technology,education') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50; /* Azul oscuro */
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #34495e; /* Gris oscuro */
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #bdc3c7; /* Gris claro */
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: #ecf0f1; /* Fondo claro */
+}
+
+button {
+    width: 100%;
+    background-color: #e74c3c; /* Rojo vibrante */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #c0392b; /* Rojo más oscuro */
+}
